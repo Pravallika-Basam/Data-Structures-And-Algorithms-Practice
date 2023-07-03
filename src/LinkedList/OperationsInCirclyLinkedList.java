@@ -87,8 +87,4 @@ public class OperationsInCirclyLinkedList {
         }
         System.out.println(temp.data);
     }
-
-    private static void printNodesRecursive(Node head){
-
-    }
 }
