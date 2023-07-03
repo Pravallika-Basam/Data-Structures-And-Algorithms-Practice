@@ -1,6 +1,8 @@
-package LinkedList;
+package LinkedList.DoublyLinkedList;
 
-import static LinkedList.DoublyLinkedListOperations.printNodes;
+import LinkedList.DoublyLinkedList.DoublyNode;
+
+import static LinkedList.DoublyLinkedList.DoublyLinkedListOperations.printNodes;
 
 public class ReverseDoublyLinkedList {
     public static void main(String[] args) {

@@ -1,4 +1,6 @@
-package LinkedList;
+package LinkedList.SinglyLinkedList;
+
+import LinkedList.SinglyLinkedList.Node;
 
 public class SinglyLinkedListOperations {
     public static void main(String[] args) {
@@ -125,7 +127,7 @@ public class SinglyLinkedListOperations {
         return head;
     }
 
-    private static void printNodes(Node temp) {
+    public static void printNodes(Node temp) {
         if(temp == null){
             return;
         }
