@@ -43,31 +43,30 @@ public class LRUCacheDesign {
      * @param args
      */
     public static void main(String[] args) {
-        int capacity = 4;
+        int capacity = 2;
         lruCacheDesign(capacity);
     }
 
     private static void lruCacheDesign(int capacity) {
+        // HashMap to store the key-value pairs of the cache
         HashMap<Integer, DoublyNode> map = new HashMap<>();
         DoublyNode head = null, tail = null;
-
-        System.out.println("HashMap Initially");
-        System.out.println(map.toString());
-        System.out.println("List Initially");
-        printNodes(head);
-        System.out.println();
-
         Scanner scan;
 
         while (true) {
             scan = new Scanner(System.in);
+            System.out.println("Enter data to search");
             int data = scan.nextInt();
+
             if (map.containsKey(data)) {
+                // Data found in the cache
                 System.out.println(data + " found in Cache");
                 System.out.println(map.toString());
 
                 DoublyNode temp = map.get(data);
+
                 if (temp != head) {
+                    // Move the accessed node to the front of the cache (MRU position)
                     DoublyNode before = temp.prev;
                     DoublyNode after = temp.next;
                     before.next = after;
@@ -81,24 +80,28 @@ public class LRUCacheDesign {
                     temp.prev = null;
                     head = temp;
                 }
+
                 System.out.println("Linked List After is");
                 printNodes(head);
                 System.out.println();
             } else {
+                // Data not present in the cache
                 System.out.println("Data is not present in Cache");
                 DoublyNode temp = new DoublyNode(data);
+
                 if (map.size() < capacity) {
+                    // Cache is not full, add the new data to the front of the cache
                     if (head == null) {
                         head = temp;
                         tail = temp;
-                        map.put(data, head);
                     } else {
                         head.prev = temp;
                         temp.next = head;
                         head = temp;
-                        map.put(data, head);
                     }
                 } else {
+                    // Cache is full, remove the least recently used data from the cache
+                    int removeData = tail.data;
                     if (tail != head) {
                         DoublyNode before = tail.prev;
                         tail.prev = null;
@@ -109,11 +112,23 @@ public class LRUCacheDesign {
                         temp.next = head;
                         temp.prev = null;
                         head = temp;
+                    } else {
+                        head = temp;
+                        tail = temp;
                     }
-
-
+                    map.remove(removeData);
                 }
+
+                // Add the new data to the cache
+                map.put(data, temp);
+
+                System.out.println("Cache after inserting data");
+                System.out.println(map.toString());
+                System.out.println("Linked List After is");
+                printNodes(head);
+                System.out.println();
             }
         }
     }
+
 }
