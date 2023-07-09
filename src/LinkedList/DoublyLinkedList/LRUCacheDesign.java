@@ -47,6 +47,7 @@ public class LRUCacheDesign {
         lruCacheDesign(capacity);
     }
 
+    //TODO: Remove long method and extract into subMethods like addNode, DeleteNode etc
     private static void lruCacheDesign(int capacity) {
         // HashMap to store the key-value pairs of the cache
         HashMap<Integer, DoublyNode> map = new HashMap<>();

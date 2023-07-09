@@ -47,7 +47,7 @@ public class ReverseLinkedList {
     }
 
 
-    private static Node reverseSinglyLinkedList(Node head) {
+    public static Node reverseSinglyLinkedList(Node head) {
         // Check if the list is empty
         if (head == null) {
             return null; // Return null if the list is empty
