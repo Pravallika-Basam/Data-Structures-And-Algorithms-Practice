@@ -14,7 +14,7 @@ public class BalancedParenthesis {
         map.put(']', '[');
         //System.out.println(map);
         String input = "))";
-        boolean b = isBalanced(input);
+        boolean b = isHeightBalanced(input);
         System.out.println(b);
 
     }
@@ -25,7 +25,7 @@ public class BalancedParenthesis {
      * @param input The input String
      * @return True if the brackets are a matching pair, false otherwise
      */
-    private static boolean isBalanced(String input) {
+    private static boolean isHeightBalanced(String input) {
         ArrayDeque<Character> stack = new ArrayDeque<>();
         for (int i = 0; i < input.length(); i++) {
             char c = input.charAt(i);
