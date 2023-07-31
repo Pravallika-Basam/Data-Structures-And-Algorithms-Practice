@@ -117,14 +117,12 @@ public class SpiralTreeTraversal {
                     queue.offer(node.right);
                 }
             }
-
             // If the flag is set, print the nodes in reverse order from the stack.
             if (isReverse) {
                 while (!stack.isEmpty()) {
                     System.out.printf(stack.pop().data + " ");
                 }
             }
-
             // Flip the flag to switch between regular and reverse order traversal.
             isReverse = !isReverse;
 
